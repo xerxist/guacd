@@ -1,8 +1,9 @@
 name: 'Build & Push Docker Image Guacd'
 
 on:
-  schedule:
-  - cron: '0 0 * * SUN'
+  push:
+    branches:
+      - '*'
 
 jobs:
   build-and-push:
@@ -19,6 +20,6 @@ jobs:
     - name: Build Docker Image latest tag
       run: docker build -t xerxist/guacd:latest .
     - name: Push Image
-      run: docker push xerxist/guacd:${{ github.run_number }}
+      run: docker push xerxist/guacd:1.4.${{ github.run_number }}
     - name: Push Image latest
       run: docker push xerxist/guacd:latest
