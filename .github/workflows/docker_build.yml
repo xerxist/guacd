@@ -1,8 +1,9 @@
 name: 'Build & Push Docker Image Guacd'
 
 on:
-  schedule:
-  - cron: '0 0 * * SUN'
+  push:
+    branches:
+      - '*'
 
 jobs:
   build-and-push:
